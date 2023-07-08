@@ -1,6 +1,6 @@
 import { launch } from 'puppeteer';
-import { observeNewMessages } from './observer.js';
-import { reply } from './reply.js';
+import { observeNewMessages } from './src/browser-scripts/observer.js';
+import { reply } from './src/browser-scripts/reply.js';
 
 const URL = process.argv[2];
 
@@ -8,8 +8,7 @@ const URL = process.argv[2];
     const messageHistory = []
     const browser = await launch({
         // headless: "new",
-        headless: false,
-        userDataDir: "./user-data"
+        headless: false
     });
     const page = await browser.newPage();
     await page.goto(URL);
